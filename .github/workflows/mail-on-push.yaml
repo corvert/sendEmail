@@ -1,0 +1,23 @@
+on:
+  push:
+jobs:
+  mail_on_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sned email to this address
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "ALERT, WE HAVE DETECTED HOT SINGLE COMMITS ${{github.repository}}"
+          body: |
+            Hello team,
+            A hot single commit has been detected in the repository and merged to mail_on_push
+
+
+            hot single commit comiited by: ${{github.event.pusher.name}}
+          to: "minuiluspuu@gmail.com"
+          from: "Github actions for ${{github.repository}}"
+   
