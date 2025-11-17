@@ -18,6 +18,6 @@ jobs:
 
 
             hot single commit comiited by: ${{github.event.pusher.name}}
-          to: "minuiluspuu@gmail.com"
+          to: "jyri.vaitmaa@tthk.ee"
           from: "Github actions for ${{github.repository}}"
    
